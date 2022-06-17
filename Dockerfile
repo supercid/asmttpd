@@ -7,5 +7,6 @@ RUN make release
 FROM scratch
 COPY --from=build /opt/asmttpd /
 COPY --from=build /opt/web_root /web_root
+EXPOSE 9999
 ENTRYPOINT ["/asmttpd"]
-CMD ["/web_root", "80"]
+CMD ["/web_root", "9999"]
